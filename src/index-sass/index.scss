@@ -1,0 +1,129 @@
+@use "sass:math";
+@import "./colors/colors";
+
+@function rem($number){
+    @if unitless($number){
+        $default-one-rem-in-pixel: 16;
+
+        @return math.div($number, $default-one-rem-in-pixel) * 1rem;
+    }
+
+    @error "This '#{number}' must not have a unit"
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;;
+}
+
+body{
+    background-color: #000;
+    min-width: 375px;
+}
+
+@media only screen and (min-width: 375px){
+    h1{
+        color: #fff;
+        font-weight: 700;
+        font-size: rem(24);
+    }
+
+    p{
+        color: $paragraph;
+        line-height: rem(24);
+        font-weight: 400;
+        font-size: rem(15);
+    }
+
+    .rating-panel, .thank-you-panel{
+        padding: rem(32);
+        width: 90%;
+        border-radius: rem(15);
+        margin: 50% auto;
+        background: radial-gradient(98.96% 98.96% at 50% 0%, #232A34 0%, #181E27 100%);
+    }
+
+    .rating-panel{
+        h1{
+            padding-top: rem(30);
+            padding-bottom: rem(15);
+        }
+        p{
+            padding-bottom: rem(24);
+        }
+        .star-bg{
+            background-color: $dark-blue;
+            padding: rem(16);
+            border-radius: 50%;
+        }
+        .btn-group{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: rem(22);
+            margin-bottom: rem(24);
+            button{
+                border-radius: 50%;
+                width: rem(42);
+                height: rem(42);
+                background-color: $dark-blue;
+                color: $med-grey;
+                border: none;
+                transition: all 250ms ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background-color: $med-grey;
+                    color: #fff;
+                }
+                &:focus{
+                    background-color: $primary;
+                    color: #fff;
+                }
+            }
+        }
+        .btn-submit{
+            width: 100%;
+            background-color: $primary;
+            border: none;
+            color: #fff;
+            letter-spacing: rem(2);
+            border-radius: rem(23);
+            padding: rem(12) 0;
+            transition: all 250ms ease-in-out;
+            &:hover, &:focus, &:active{
+                cursor: pointer;
+                background-color: #fff;
+                color: $primary;
+            }
+        }
+    }
+
+    .thank-you-panel{
+        text-align: center;
+        h1{
+            padding-top: rem(32);
+            padding-bottom: rem(7);
+        }
+
+        .rating-results{
+            margin: rem(32) auto auto auto ;
+            color: $primary;
+            background-color: $dark-blue;
+            width: rem(193);
+            height: rem(32);
+            border-radius: rem(23);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px){
+    .thank-you-panel, .rating-panel{
+        width: rem(412);
+    }
+}
