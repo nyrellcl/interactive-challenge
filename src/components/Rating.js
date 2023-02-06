@@ -15,7 +15,7 @@ function Rating() {
     }
 
     return isSubmitted ? (<section className='thank-you-panel'>
-        <img src='../assets/images/illustration-thank-you.svg' alt='' />
+        <img src='../public/assets/images/illustration-thank-you.svg' alt='' />
         <p className='rating-results'>You selected {selectedRating} out of 5.</p>
         <h1>Thank you!</h1>
 
@@ -23,7 +23,7 @@ function Rating() {
             don’t hesitate to get in touch!</p>
     </section>) : (
         <form onSubmit={handleFormSubmitted} className='rating-panel'>
-            <img className='star-bg' src='../assets/images/icon-star.svg' alt='' />
+            <img className='star-bg' src='../public/assets/images/icon-star.svg' alt='' />
             <h1>How did we do?</h1>
             <p>Please let us know how we did with your support request. All feedback is appreciated
                 to help us improve our offering!</p>
